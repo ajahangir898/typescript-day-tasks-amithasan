@@ -21,3 +21,18 @@ const user2: User = {
 
 console.log(user1);
 console.log(user2);
+
+function printValue(value:number | string): void {
+    if (typeof value === "number") {
+        console.log("Number value:", value);
+        console.log("Double:", value * 2);
+    } else if (typeof value === "string") {
+        console.log("string value:", value);
+        console.log("Uppercase:", value.toUpperCase());
+    } else {
+        console.log("Unknown type");
+    } 
+} 
+
+printValue(20);
+printValue('hello world');
