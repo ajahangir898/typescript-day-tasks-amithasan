@@ -97,3 +97,28 @@ const updateForm: Partial<User> = {}; // start empty, fill as user edits
 updateForm.name = 'Alice Cooper'; // allowed
 
 console.log(user, updated, updateForm);
+
+// unknown type to string type conversion
+let input: unknown = 'Hello TypeCript';
+// Unsafe cast using 'as' keyword
+let unsafeString = input as string;
+console.log('unsafe Cast:', unsafeString.toUpperCase());
+
+// Safe type checking before casting
+if (typeof input=== 'string') {
+    let safeString = input as string;
+    console.log('Safe String:', safeString.toUpperCase());
+}
+
+// Function of unknown type to string
+function handleValue(value: unknown) {
+    if (typeof value  === 'string') {
+        const result = (value as string).trim();
+        console.log('trinmed String:', result);
+    }
+    else {
+        console.log('Not a String value:', value);
+    }
+}
+
+handleValue('       amit hasan   ')
