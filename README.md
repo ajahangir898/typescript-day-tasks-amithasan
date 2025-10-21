@@ -1,1 +1,1 @@
-# typescript-day-tasks-amithasan
+# typescript-day1-tasks-amithasan
