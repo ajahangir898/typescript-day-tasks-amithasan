@@ -72,3 +72,28 @@ const firstName = getFirstItem(name);
 
 console.log(firstNumber);
 console.log(firstName);
+
+
+// ...existing code...
+interface User {
+    id: number;
+    name: string;
+    email: string;
+}
+
+// Readonly<User> makes all properties read-only
+const user: Readonly<User> = { id: 1, name: 'Alice', email: 'alice@example.com' };
+// user.name = 'Bob'; // Error: Cannot assign to 'name' because it is a read-only property
+
+// Partial<User> makes all properties optional — great for update forms
+function updateUser(original: User, changes: Partial<User>): User {
+    return { ...original, ...changes };
+}
+
+const updated = updateUser(user as User, { email: 'alice@new.com' });
+
+// Example form state using Partial<User>
+const updateForm: Partial<User> = {}; // start empty, fill as user edits
+updateForm.name = 'Alice Cooper'; // allowed
+
+console.log(user, updated, updateForm);
